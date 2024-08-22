@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: mahabaleshwars/setup-java@distributions/semuru
         with:
           distribution: 'semeru'
           java-version: '17'
