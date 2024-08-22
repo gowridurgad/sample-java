@@ -12,5 +12,5 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'semuru'
+          distribution: 'semeru'
           java-version: '17.0.12.0'
