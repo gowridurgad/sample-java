@@ -8,17 +8,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['windows-latest', 'ubuntu-latest']
+        os: ['macos-13','macos-14']
         jdk: ['8','11','17','21']
         architecture: ['x64', 'arm64']
         include:
-          - os: 'windows-latest'
+          - os: 'macos-13'
             architecture: 'x64'
-          - os: 'ubuntu-latest'
+          - os: 'macos-14'
             architecture: 'x64'
-          - os: 'ubuntu-latest'
+          - os: 'macos-13'
             architecture: 'arm64'
-          - os: 'windows-latest'
+          - os: 'macos-14'
             architecture: 'arm64'
     steps:
       - name: Checkout
