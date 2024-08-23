@@ -10,6 +10,16 @@ jobs:
       matrix:
         os: ['windows-latest', 'ubuntu-latest']
         jdk: ['8','11','17','21']
+        architecture: ['x64', 'arm64']
+        include:
+          - os: 'windows-latest'
+            architecture: 'x64'
+          - os: 'ubuntu-latest'
+            architecture: 'x64'
+          - os: 'ubuntu-latest'
+            architecture: 'arm64'
+          - os: 'windows-latest'
+            architecture: 'arm64'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
