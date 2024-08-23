@@ -5,7 +5,11 @@ on:
 
 jobs:
   Build:
-    runs-on: macos-14
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['windows-latest', 'ubuntu-latest', 'macos-latest', 'macos-14','macos-13']
+        jdk: ['8','11','17','21']
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -13,4 +17,4 @@ jobs:
         uses: mahabaleshwars/setup-java@distributions/semuru
         with:
           distribution: 'semeru'
-          java-version: '17'
+          java-version: ${{ matrix.jdk }}
