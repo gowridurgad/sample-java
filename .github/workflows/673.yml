@@ -8,18 +8,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['macos-13','macos-14']
+        os: ['macos-13']
         jdk: ['8','11','17','21']
         architecture: ['x64', 'arm64']
         include:
           - os: 'macos-13'
             architecture: 'x64'
-          - os: 'macos-14'
-            architecture: 'x64'
+          # - os: 'macos-14'
+          #   architecture: 'x64'
           - os: 'macos-13'
             architecture: 'arm64'
-          - os: 'macos-14'
-            architecture: 'arm64'
+          # - os: 'macos-14'
+          #   architecture: 'arm64'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
