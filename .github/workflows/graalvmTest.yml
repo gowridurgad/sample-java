@@ -5,10 +5,20 @@ on:
 
 jobs:
   GraalVM_Test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.sdkman/candidates/java
+          key: ${{ runner.os }}-jdk-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-jdk-
 
       - name: Setup Java
         uses: mahabaleshwars/setup-java-fniephaus-graalvm@main
