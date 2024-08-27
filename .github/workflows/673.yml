@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['windows-latest']
+        os: ['ubuntu-latest','windows-latest','macos-14']
         jdk: ['8','11','17','21']
     steps:
       - name: Checkout
@@ -18,5 +18,5 @@ jobs:
         with:
           distribution: 'semeru'
           java-version: ${{ matrix.jdk }}
-          architecture: 'arm64'
+          architecture: 'aarch64'
 
