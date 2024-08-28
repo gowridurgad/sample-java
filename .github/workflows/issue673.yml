@@ -5,11 +5,12 @@ on:
 
 jobs:
   Build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-${{ matrix.arch }}
     strategy:
       matrix:
-        os: ['macos-latest']
-        jdk: ['8','11','17','21']
+        os: ['macos-13']
+        jdk: ['8', '11', '17', '21']
+        arch: ['x64', 'arm64']  # Add the architecture options here
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,4 +19,3 @@ jobs:
         with:
           distribution: 'semeru'
           java-version: ${{ matrix.jdk }}
-          
