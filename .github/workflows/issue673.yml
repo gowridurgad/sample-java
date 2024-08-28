@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: ['macos-13']
         jdk: ['8', '11', '17', '21']
-        arch: ['x64', 'arm64']  # Add the architecture options here
+        arch: ['ccd']  # Add the architecture options here
     steps:
       - name: Checkout
         uses: actions/checkout@v4
