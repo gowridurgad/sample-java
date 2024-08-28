@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: ['ubuntu-latest']
         jdk: ['8', '11', '17', '21']
-        arch: ['ccd']  # Add the architecture options here
+       
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,3 +19,4 @@ jobs:
         with:
           distribution: 'semeru'
           java-version: ${{ matrix.jdk }}
+          architecture: 'ccd'
