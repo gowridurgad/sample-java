@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}-${{ matrix.arch }}
     strategy:
       matrix:
-        os: ['macos-13']
+        os: ['ubuntu-latest']
         jdk: ['8', '11', '17', '21']
         arch: ['ccd']  # Add the architecture options here
     steps:
