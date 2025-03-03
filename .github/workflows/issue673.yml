@@ -18,4 +18,5 @@ jobs:
         uses: gowridurgad/setup-java-fork@testing-schema
         with:
           java-version: '21'
+          distribution: 'temurin' 
          
