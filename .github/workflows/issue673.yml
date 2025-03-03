@@ -9,14 +9,13 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest']
-        jdk: ['8', '11', '17', '21']
+        
        
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Java
-        uses: mahabaleshwars/setup-java@distributions/semuru
+        uses: gowridurgad/setup-java-fork@testing-schema
         with:
-          distribution: 'semeru'
-          java-version: ${{ matrix.jdk }}
-          architecture: 'ccd'
+          java-version: '21'
+         
