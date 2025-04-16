@@ -15,4 +15,5 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt' 
+          check-latest: true
          
