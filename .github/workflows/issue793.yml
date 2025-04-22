@@ -13,7 +13,7 @@ jobs:
       - name: Setup Java
         uses: gowridurgad/setup-java@error-handling
         with:
-          java-version: '11'
+          java-version: '7'
           distribution: 'adopt' 
           check-latest: true
          
