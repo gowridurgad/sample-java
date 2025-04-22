@@ -5,15 +5,15 @@ on:
 
 jobs:
   Build:
-    runs-on: self-hosted        
+    runs-on: ubuntu-latest
        
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: gowridurgad/setup-java@error-handling
         with:
-          java-version: '11'
+          java-version: '21'
           distribution: 'adopt' 
           check-latest: true
          
