@@ -1,0 +1,17 @@
+name: issue803
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+       
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4.7.1
+        with:
+            distribution: 'temurin'
+            java-version-file: .java-version
