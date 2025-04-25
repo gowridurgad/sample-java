@@ -13,5 +13,5 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4.7.1
         with:
-            distribution: 'temurin'
+            distribution: 'adopt'
             java-version-file: .java-version
