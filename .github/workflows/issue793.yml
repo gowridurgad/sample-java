@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Java
-        uses: gowridurgad/setup-java@error-handling
+        uses: actions/setup-java@error-handling
         with:
           java-version: '11'
           distribution: 'adopt' 
