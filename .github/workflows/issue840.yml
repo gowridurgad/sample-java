@@ -15,6 +15,10 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,6 +31,11 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           check-latest: true
+      - name: Install Java
+        run: |
+            apk update && \
+            apk upgrade
+            apk add openjdk11=11.0.24_p8-r0
 
       - name: Semgrep Scan
         run: |
