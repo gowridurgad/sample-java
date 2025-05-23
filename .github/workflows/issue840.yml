@@ -35,7 +35,7 @@ jobs:
         run: |
             apk update && \
             apk upgrade
-            apk add openjdk11
+            apk add openjdk21
 
       - name: Semgrep Scan
         run: |
