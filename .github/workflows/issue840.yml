@@ -39,16 +39,8 @@ jobs:
 
       - name: Semgrep Scan
         run: |
-          chmod +x $JAVA_HOME/bin/java
-          echo "Path is: $PATH"
-          echo "JAVA_HOME is: $JAVA_HOME"
-          echo "JAVA_HOME_21_X64 is $JAVA_HOME_21_X64"
-          echo "Which Java? $(which java)"
-          echo "Which Java version?"
-          java -version
-          echo "What files are found in $JAVA_HOME_21_X64/bin?"
-          ls -la $JAVA_HOME_21_X64/bin
-          echo "What files are found in $JAVA_HOME/bin?"
-          ls -la $JAVA_HOME/bin
-          echo "Testing specific java binary:"
-          $JAVA_HOME_21_X64/bin/java -version
+            which java
+            type java
+            echo $JAVA_HOME
+            echo $PATH
+            java --help
