@@ -1,6 +1,9 @@
 name: Shared Deploy
 
- permissions:
+on:
+  workflow_dispatch:
+
+permissions:
   contents: read
   id-token: write
 
@@ -11,7 +14,6 @@ jobs:
 
   semgrep:
     name: Scan
-    #continue-on-error: false
     runs-on: ubuntu-latest
     container:
       image: semgrep/semgrep
@@ -22,16 +24,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-java@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           check-latest: true
-      #- run: java HelloWorldApp.java # commented out, not working
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
       - name: Semgrep Scan
         run: |
           chmod +x $JAVA_HOME/bin/java
@@ -39,7 +39,11 @@ jobs:
           echo "JAVA_HOME is: $JAVA_HOME"
           echo "JAVA_HOME_21_X64 is $JAVA_HOME_21_X64"
           echo "Which Java? $(which java)"
-          echo "Which Java version? $(java -version)"
-          echo "What files are found in $JAVA_HOME_21_X64/bin? $(ls -la $JAVA_HOME_21_X64/bin)"
-          echo "What files are found in $JAVA_HOME/bin? $(ls -la $JAVA_HOME/bin)"
+          echo "Which Java version?"
+          java -version
+          echo "What files are found in $JAVA_HOME_21_X64/bin?"
+          ls -la $JAVA_HOME_21_X64/bin
+          echo "What files are found in $JAVA_HOME/bin?"
+          ls -la $JAVA_HOME/bin
+          echo "Testing specific java binary:"
           $JAVA_HOME_21_X64/bin/java -version
