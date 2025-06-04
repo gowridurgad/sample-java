@@ -13,4 +13,5 @@ jobs:
       - name: Setup Java
         uses: gowridurgad/setup-java@error-handling
         with:
+            distribution: 'sapmachine'
             java-version: '21'
