@@ -18,11 +18,5 @@ jobs:
       - name: Print toolchains.xml (after first run)
         run: cat ~/.m2/toolchains.xml || echo "Not found"
 
-      - name: Set up Java (second run)
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Print toolchains.xml (after second run)
-        run: cat ~/.m2/toolchains.xml || echo "Not found"
+     
+        
