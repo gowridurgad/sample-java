@@ -1,22 +1,22 @@
-name: Toolchains Overgrowth Test
+name: testing530
 
 on: [workflow_dispatch]
 
 jobs:
   test-toolchains-duplication:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java (first)
+      - name: Set up Java 
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Print toolchains.xml (after first run)
-        run: cat ~/.m2/toolchains.xml || echo "Not found"
+      - name: Print toolchains.xml
+        run: cat ~/.m2/toolchains.xml
 
      
         
