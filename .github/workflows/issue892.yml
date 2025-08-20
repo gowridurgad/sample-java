@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: mocos-latest
+    runs-on: macos-latest
     steps:
       - name: setup java
         uses: actions/setup-java@v4
