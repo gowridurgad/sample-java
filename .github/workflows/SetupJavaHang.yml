@@ -1,0 +1,25 @@
+name: Reproduce Setup-Java Hang
+on:
+  workflow_dispatch:
+jobs:
+  reproduce-hang:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        run: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50] # 10 parallel runs
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Java (Temurin 17)
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17   # leaving patch unspecified forces API lookup
+          distribution: temurin
+          java-package: jdk
+          check-latest: false
+          server-id: github
+          server-username: ${{ github.actor }}
+          server-password: ${{ secrets.GITHUB_TOKEN }}
+          overwrite-settings: true
+      - name: Confirm Java version
+        run: java -version
