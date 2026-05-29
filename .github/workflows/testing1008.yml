@@ -15,5 +15,6 @@ jobs:
         uses: actions/setup-java@v5
         with:
           java-version: "25.0.3+480.61"
+          distribution: jetbrains
 
     
