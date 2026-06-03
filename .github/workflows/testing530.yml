@@ -4,19 +4,23 @@ on: [workflow_dispatch]
 
 jobs:
   test-toolchains-duplication:
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [production-Partner-RHEL9-X64, production-Partner-RHEL10-X64]
+        node-version: [20-nightly, 25-nightly, 24.0.0-nightly]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Java 
-        uses: Okeanos/setup-java@fix-maven-toolchains-duplication
+      - uses: actions/checkout@v6
+      - name: Install Node runtime deps (RHEL partner runners)
+        if: contains(matrix.os, 'production-Partner-RHEL')
+        run: |
+           sudo dnf -y install libatomic
+        shell: bash
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Print toolchains.xml
-        run: cat ~/.m2/toolchains.xml
+          node-version: 24
 
      
         
