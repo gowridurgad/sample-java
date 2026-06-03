@@ -18,7 +18,7 @@ jobs:
         # uses: sproctor/setup-java@main 
         uses: actions/setup-java@v5
         with:
-          java-version: "17.0.8.1"
+          java-version: "17"
           distribution: microsoft
 
     
