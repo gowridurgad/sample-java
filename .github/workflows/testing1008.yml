@@ -18,7 +18,7 @@ jobs:
         # uses: sproctor/setup-java@main 
         uses: actions/setup-java@v5
         with:
-          java-version: "25.0.3"
+          java-version: "25"
           distribution: jetbrains
 
     
