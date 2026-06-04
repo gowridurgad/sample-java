@@ -1,24 +1,24 @@
-
 name: testing-1008
 
 on:
   workflow_dispatch:
-  
 
 jobs:
   test-static-node:
     runs-on: ubuntu-latest
-       
-   
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Set up Node.js
-        # uses: sproctor/setup-java@main 
+      - name: Clear runner tool cache
+        run: |
+          echo "Cleaning hosted tool cache..."
+          sudo rm -rf /opt/hostedtoolcache/*
+          sudo rm -rf "$RUNNER_TOOL_CACHE"/* || true
+
+      - name: Set up Java
         uses: actions/setup-java@v5
         with:
-          java-version: "25"
+          java-version: "25.0.3"
           distribution: jetbrains
-
-    
