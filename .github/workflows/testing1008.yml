@@ -15,7 +15,7 @@ jobs:
           - distribution: zulu
             java-version: '17.0.19+10'
           - distribution: corretto
-            java-version: '17.0.19+10.1'
+            java-version: '17.0.19'
           - distribution: microsoft
             java-version: '17.0.10'
           - distribution: oracle
