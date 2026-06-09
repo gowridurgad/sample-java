@@ -1,43 +1,32 @@
-name:  testing-1008
+name: testing-1008
+
 on:
   workflow_dispatch:
-  
+
 jobs:
-  test-distributions:
+  discover:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - distribution: temurin
-            java-version: '17.0.12+7'
-          - distribution: zulu
-            java-version: '17.0.12+7'
-          - distribution: corretto
-            java-version: '17.0.12+7'
-          - distribution: microsoft
-            java-version: '17.0.12+7'
-          - distribution: oracle
-            java-version: '17.0.12+7'
-          - distribution: liberica
-            java-version: '17.0.12+7'
-          - distribution: sapmachine
-            java-version: '17.0.12+7'
-          - distribution: jetbrains
-            java-version: '17.0.12+7'
+        distribution:
+          - temurin
+          - zulu
+          - corretto
+          - microsoft
+          - oracle
+          - liberica
+          - sapmachine
+          - jetbrains
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Java for ${{ matrix.distribution }}
+      - name: Setup Java
         uses: actions/setup-java@v5
-         # uses: sproctor/setup-java@main 
         with:
           distribution: ${{ matrix.distribution }}
-          java-version: ${{ matrix.java-version }}
+          java-version: '17'
+          check-latest: true
 
-
-
-
-
+      
