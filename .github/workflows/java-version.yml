@@ -1,7 +1,6 @@
 name: Test all distributions with CRaC
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
