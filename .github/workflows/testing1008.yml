@@ -13,6 +13,7 @@ jobs:
       - name: Setup Java
         uses: sproctor/setup-java@main
         with:
+          distribution: "jetbrains"
           java-version-file: ".tool-versions"
 
   test-main-version:
