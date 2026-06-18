@@ -17,3 +17,6 @@ jobs:
           java-version: '21'
           distribution: 'temurin' 
           cache: maven
+      - name: Install dependencies
+        run: ./mvnw -B dependency:resolve
+
