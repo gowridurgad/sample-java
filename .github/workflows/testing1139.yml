@@ -1,0 +1,26 @@
+name: testing1139
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Java (GraalVM)
+        uses: actions/setup-java@v5
+        with:
+          distribution: graalvm-community
+          java-version: '21'
+          cache: gradle
+
+      - name: Print env vars
+        run: |
+          echo "JAVA_HOME=$JAVA_HOME"
+          echo "GRAALVM_HOME=$GRAALVM_HOME"
+
+      - name: Fail if GRAALVM_HOME is missing
+        run: |
+          test -n "$GRAALVM_HOME"
